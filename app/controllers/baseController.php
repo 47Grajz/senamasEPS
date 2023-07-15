@@ -5,27 +5,26 @@ session_start();
 
 class BaseController
 
-
 {
 
+    protected string $layout = "admin_layout";
 
     public function __construct()
     {
-        if(isset($_SESSION['time_out'])){
-            //SE CALCULA EL TIEMPO DE VIDA DE LA SESION
-            $sesionTime = time() - $_SESSION['time_out'];
-            if($sesionTime > (INACTIVE_TIME * 60)){
-                session_destroy();
-                header("Location:/login/init");
-            }else{
-                $_SESSION['time_out'] = time();
-            }
+      if(isset($_SESSION['timeout'])){
+        
+        #se calcula el tiempo de vida de la sesion
+        $time = time() - $_SESSION['timeout'];
+
+        if ($time > (INACTIVE_TIME * 1000000)){
+            session_destroy();
+            header("location:/login/init");
+        }else{
+            $_SESSION['timeout'] = time();
         }
+      }  
     }
 
-
-
-    protected string $layout = "admin_layout";
     //Metodo para renderizar una vista con todos los datos
     protected function render($view, $data=[]):void
     {

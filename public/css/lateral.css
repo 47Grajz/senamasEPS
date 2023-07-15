@@ -1,9 +1,11 @@
 :root {
     --blanco: #E0E0E0;
     --azul-opacidad: white;
-    --bg-menu: purple;
     --bg-body: #C7E1FF;
-    --hoover-color:purple;
+    --hoover-color:#00bfff;
+    --custom-background: rgb(0, 191, 255);
+  --custom-gradient: linear-gradient(90deg, rgba(0, 191, 255, 1) 0%, rgba(59, 212, 218, 1) 100%, rgba(0, 136, 255, 1) 100%);
+
 }
 
 
@@ -12,7 +14,7 @@
 .menu-dashboard {
     max-width: 100px;
     height: 100vh;
-    background: var(--bg-menu);
+    background-color: #00bfff;
     padding: 20px;
     transition: max-width .3s ease;
 }
@@ -53,7 +55,7 @@
 }
 
 /* INPUT BOX */
-
+/* 
 .input-search {
     width: 100%;
     margin: 50px 0;
@@ -67,7 +69,7 @@
 .input-search i {
     font-size: 30px;
     margin-right: 20px;
-}
+} */
 
 .input-search .input {
     border: none;
@@ -82,12 +84,17 @@
 
 /* ENLACES MENU */
 
+.menu{
+    margin-top: 50px;
+}
+
 .menu .enlace {
     width: 100%;
     padding: 20px 0 20px 17px;
     border-radius: 8px;
     display: flex;
     align-items: center;
+    margin-top: 20px;
     margin-bottom: 20px;
     cursor: pointer;
     font-size: 20px;
@@ -133,6 +140,52 @@
 .menu-dashboard.open .menu .enlace span {
     opacity: 1;
 }
+
+
+
+
+
+.menu .logout {
+    width: 100%;
+    padding: 20px 0 20px 17px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all .3s ease;
+  }
+  
+  .menu .logout:hover {
+    color: red;
+  }
+  
+  .menu .logout i {
+    margin-right: 20px;
+    font-size: 25px;
+  }
+  
+  .menu .logout span {
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  
+  
+  .menu-dashboard.open .menu .logout {
+    width: auto;
+  }
+  
+  
+  .menu-dashboard.open .menu .logout {
+    padding: 20px;
+  }
+  
+  .menu-dashboard.open .menu .logout span {
+    opacity: 1;
+  }
+  
 
 
 

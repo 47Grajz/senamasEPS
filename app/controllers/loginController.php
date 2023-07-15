@@ -44,4 +44,32 @@ class LoginController extends BaseController
         session_destroy();
         header("location:/login/init");
     }
+
+
+    public function register()
+    {
+        if(isset($_POST['txtUsuario'])) {
+            $usuario = $_POST['txtUsuario'];
+            $contrasena = $_POST['txtContrasena'];
+            $estado = 'activo';
+            $hora = date("Y-m-d H:i:s");
+            $create_at = $hora;
+            $tipo_usuario = $_POST['txtTipo'];
+            $usuarioBD = new UserModel(
+                $cod_usuario=null,
+                $usuario,
+                $contrasena,
+                $estado,
+                $tipo_usuario,
+                $create_at
+            );
+            echo "llegan los datos";
+            $usuarioBD->save();
+            // $this->redirecTo("/login/init");
+        }
+        else
+        {
+            $this->render("/login/register");
+        }
+    }
 }

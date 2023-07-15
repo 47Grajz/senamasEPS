@@ -3,7 +3,7 @@
     <div class="content">
 
     <h1 class="h3 ">cantidad de pacientes <?php echo $data['cant_pacientes'] ?></h1>
-    <table class="table table-striped">
+    <table class="table ">
     <thead>
     <tr>
       <th scope="col">Nombre</th>
@@ -37,7 +37,7 @@
     ?>
     </table>
 
-        <a href="/paciente/create"><button class="button">Añadir Nuevo</button></a>
-    </div>
+    
+    <button class="button"> <a href="/paciente/create">Añadir Nuevo</a></button>
 </div>
 

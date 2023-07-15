@@ -1,6 +1,10 @@
 <?php
 
 $routes = [
+
+
+// ----------------Rutas Iniciales -------------------
+
     '/' => [
         'controller' => 'App\Controllers\HomeController',
         'action' => 'index'
@@ -13,16 +17,9 @@ $routes = [
         'controller' => 'App\Controllers\HomeController',
         'action' => 'greetings'
     ],
-    '/paciente/index' => [
-        'controller' => 'App\Controllers\PacienteController',
-        'action' => 'index'
-    ],
+
   
-    
-    '/movies' => [
-        'controller' => 'App\Controllers\PeliculasController',
-        'action' => 'index'
-    ],
+    // ----------------Login -------------------
 
     '/login/init' => [
         'controller' => 'App\Controllers\loginController',
@@ -34,13 +31,44 @@ $routes = [
         'action' => 'Logout'
     ],
 
+    '/login/register' => [
+        'controller' => 'App\Controllers\loginController',
+        'action' => 'register'
+    ],
 
 
+    // ----------------Rutas Usuario -------------------
 
-    '/movies' => [
-        'controller' => 'App\Controllers\PeliculasController',
+    '/usuario/index' => [
+        'controller' => 'App\Controllers\userController',
         'action' => 'index'
     ],
+
+    '/usuario/create' => [
+        'controller' => 'App\Controllers\userController',
+        'action' => 'create'
+    ],
+
+    '/usuario/new' => [
+        'controller' => 'App\Controllers\userController',
+        'action' => 'new'
+    ],
+
+ 
+
+    '/usuario/eliminar/(\d+)' => [
+        'controller' => 'App\Controllers\userController',
+        'action' => 'eliminar'
+    ],
+
+
+    // ----------------Rutas Paciente -------------------
+   
+    '/paciente/index' => [
+        'controller' => 'App\Controllers\PacienteController',
+        'action' => 'index'
+    ],
+
     '/paciente/create' => [
         'controller' => 'App\Controllers\PacienteController',
         'action' => 'create'
@@ -49,24 +77,10 @@ $routes = [
         'controller' => 'App\Controllers\PacienteController',
         'action' => 'new'
     ],
-    '/paciente/update' => [
+    '/paciente/update/(\d+)' => [
         'controller' => 'App\Controllers\PacienteController',
         'action' => 'update'
     ],
-    '/cita/create' => [
-        'controller' => 'App\Controllers\citaController',
-        'action' => 'create'
-    ],
-    '/cita/index' => [
-        'controller' => 'App\Controllers\citaController',
-        'action' => 'index'
-    ],
-
-    '/cita/eliminar/(\d+)' => [
-        'controller' => 'App\Controllers\citaController',
-        'action' => 'eliminar'
-    ],
-
     '/paciente/show/(\d+)' => [
         'controller' => 'App\Controllers\PacienteController',
         'action' => 'getPaciente'
@@ -83,6 +97,68 @@ $routes = [
         'controller' => 'App\Controllers\PacienteController',
         'action' => 'details'
     ],
+
+
+    // ----------------Rutas Citas -------------------
+
+    '/cita/create' => [
+        'controller' => 'App\Controllers\citaController',
+        'action' => 'create'
+    ],
+    '/cita/index' => [
+        'controller' => 'App\Controllers\citaController',
+        'action' => 'index'
+    ],
+
+    '/cita/eliminar/(\d+)' => [
+        'controller' => 'App\Controllers\citaController',
+        'action' => 'eliminar'
+    ],
+
+        // ----------------Rutas Especialidades -------------------
+
+        '/especialidad/index' => [
+            'controller' => 'App\Controllers\EspecialidadController',
+            'action' => 'index'
+        ],
+
+        
+        '/especialidad/create' => [
+            'controller' => 'App\Controllers\EspecialidadController',
+            'action' => 'create'
+        ],
+
+          
+        '/especialidad/new' => [
+            'controller' => 'App\Controllers\EspecialidadController',
+            'action' => 'new'
+        ],
+
+        
+    '/especialidad/eliminar/(\d+)' => [
+        'controller' => 'App\Controllers\EspecialidadController',
+        'action' => 'eliminar'
+    ],
+
+          
+    '/especialidad/edit/(\d+)' => [
+        'controller' => 'App\Controllers\EspecialidadController',
+        'action' => 'edit'
+    ],
+
+              
+    '/especialidad/update/(\d+)' => [
+        'controller' => 'App\Controllers\EspecialidadController',
+        'action' => 'update'
+    ],
+
+
+
+
+    
+    // ----------------Rutas Medico -------------------
+
+
     '/medico/index' => [
         'controller' => 'App\Controllers\MedicoController',
         'action' => 'index'
@@ -99,7 +175,7 @@ $routes = [
         'controller' => 'App\Controllers\MedicoController',
         'action' => 'edit'
     ],
-    '/medico/update' => [
+    '/medico/update/(\d+)' => [
         'controller' => 'App\Controllers\MedicoController',
         'action' => 'update'
     ],
@@ -107,6 +183,8 @@ $routes = [
         'controller' => 'App\Controllers\MedicoController',
         'action' => 'eliminar'
     ]
+
+    
 ];
 enviarRutas($routes);
 function enviarRutas($routes){

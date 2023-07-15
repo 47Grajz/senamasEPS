@@ -10,13 +10,7 @@ abstract class BaseModel
 {
     protected $dbConnection; //Atributo que contiene la conexion EN: 
     protected $table; //Representa  la tabla del modelo actuual EN:
-
-
-
-
-
-
-    public function __construct()
+   public function __construct()
     {
         $dbConfig = require_once MAIN_APP_ROUTE . '/../config/database.php';
         try {
@@ -28,7 +22,7 @@ abstract class BaseModel
         } catch (PDOException $e) {
             die("Error en la conexion" . $e->getMessage());
         }
-    }
+    } 
     public function getAll(): array
     {
         try {
@@ -56,19 +50,19 @@ abstract class BaseModel
             die("Error en consulta" . $e->getMessage());
         }
     }
-    public function details($where,$id): array
-    {
-        try {
-            //Query que se ejecutara.
-            $query = "SELECT * FROM $this->table INNER JOIN usuario where $where = $id";
-            //Obtener los resultados en un array
-            $statment = $this->dbConnection->query($query);
-            $resultSet = $statment->fetchAll(PDO::FETCH_OBJ);
-            return $resultSet;
-        } catch (PDOException $e) {
-            die("Error en consulta" . $e->getMessage());
-        }
-    }
+    // public function details($where,$id): array
+    // {
+    //     try {
+    //         //Query que se ejecutara.
+    //         $query = "SELECT * FROM $this->table INNER JOIN usuario where $where = $id";
+    //         //Obtener los resultados en un array
+    //         $statment = $this->dbConnection->query($query);
+    //         $resultSet = $statment->fetchAll(PDO::FETCH_OBJ);
+    //         return $resultSet;
+    //     } catch (PDOException $e) {
+    //         die("Error en consulta" . $e->getMessage());
+    //     }
+    // }
     public function eliminar($from,$where,$documento){
         try{
             $sql = $this->dbConnection->prepare("DELETE FROM $from
@@ -84,5 +78,6 @@ abstract class BaseModel
             die();
         }
    }
-    
 }
+
+

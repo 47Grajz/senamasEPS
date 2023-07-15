@@ -5,25 +5,30 @@ namespace App\Models;
 use Error;
 use PDOException;
 
-class Especialidad extends BaseModel{
+class EspecialidadModel extends BaseModel{
+
+    
     public function __construct(
         private ?string $cod_especialidad = null,
         private ?string $nombre = null,
         private ?string $descripcion = null
     )
     {
-        $this->table = 'Especialidad';
+        $this->table = 'especialidad';
         parent::__construct();
     }
     public function save(){
         try {
-            $sql = $this->dbConnection->prepare("INSERT INTO especialidad(nombre,descripcion) VALUES(?,?)");
+            $sql = $this->dbConnection->prepare("INSERT INTO especialidad (nombre,descripcion) VALUES(?,?)");
 
             $sql->bindParam(1,$this->nombre);
             $sql->bindParam(2,$this->descripcion);
+
+            $sql->execute();
 
         } catch (PDOException $m) {
             die("Error guardando especialidad " . $m->getMessage());
         }
     }
+
 }

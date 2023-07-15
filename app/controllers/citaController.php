@@ -11,6 +11,7 @@ class citaController extends BaseController
     public function __construct()
     {
         $this->layout = "admin_layout";
+        parent::__construct();
     }
 
     public function index()

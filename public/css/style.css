@@ -1,8 +1,33 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+:root {
+
+    --custom-background: rgb(0, 191, 255);
+  --custom-gradient: linear-gradient(90deg, rgba(0, 191, 255, 1) 0%, rgba(59, 212, 218, 1) 100%, rgba(0, 136, 255, 1) 100%);
+
+}
+
+body
+{
+    font-family: 'Poppins',sans-serif;
+    background-color: #00bfff;
+}
+
+img
+{
+    background-color: white;
+    color: white    ;
+}
+
+
+  
+  /* Resto de los estilos y reglas CSS para el contenido de la página */
+  
 
 .header{
     color: white;
-    background-color: purple;
+    background-color:#00bfff ;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -35,13 +60,51 @@ footer {
     left: 0;
 }
 .containersito{
+    width: 100%;
     display: flex;
     flex-direction: row wrap;
-    justify-content: space-between;
     background-color: white;
 }
 
+.container-php
+{
+    width: 100%;
+}
 
+.navbar
+{
+    margin-top: 10px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    color: black;
+    padding: 20px;
+    border-bottom: 1px solid #00bfff;
+}   
+
+.navbar ul{
+    display: flex;
+    justify-content: space-between;
+    gap:30px;
+}
+
+.navbar li{
+
+    padding: 5px;
+    border-radius: 10px;
+    transition: all .3s ease;
+}
+
+.navbar li:hover
+{
+    background-color: #00bfff;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+
+}
 
 .container-content{
 
@@ -53,6 +116,22 @@ footer {
     border-radius: 3px;
     padding: 1.5em;
     color: black;
+}
+
+
+.user
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.user i
+{
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
 }
 
 
@@ -73,7 +152,6 @@ footer {
 
 .Buttons
 {
-    background-color: purple;
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -87,7 +165,7 @@ footer {
 
 
 .button {
-    --color: purple;
+    --color:#00bfff;
     padding: 0.8em 1.7em;
     background-color: transparent;
     border-radius: .3em;
@@ -141,3 +219,44 @@ footer {
    .button:active {
     filter: brightness(.8);
    }
+
+
+    .especialidades_tittle
+    {
+        margin-top: 40px;
+    }
+
+   .especialidades{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vh;
+    height: auto;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 30px;
+    padding: 10px;
+   }
+
+.form-check-label
+{
+    display: flex;
+
+    align-items: center;
+    padding-top: 10px;
+}
+
+
+.form-check{
+    margin: 10px;
+}
+   .form-check-input
+   {
+    margin: 10px;
+   }
+
+
+
+   

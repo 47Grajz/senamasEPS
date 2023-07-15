@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use PDOException;
+use PDO;
 
 class pacienteModel extends BaseModel
 {
@@ -47,10 +48,9 @@ class pacienteModel extends BaseModel
     }
     public function updatePeople(){
         try {
-            $sql = $this->dbConnection->prepare(" UPDATE paciente SET nombre=:nombre,direccion =:direccion,telefono=:telefono,fechanacimiento=:fechanacimiento,estado=:estado,
-            genero=:genero,eps=:eps,email=:email
-            WHERE documento = :documento
-            ");
+            $sql = $this->dbConnection->prepare(" UPDATE paciente SET nombre=:nombre,direccion =:direccion,telefono=:telefono,email=:email,fecha_nacimiento=:fechanacimiento,estado=:estado,
+            genero=:genero,eps=:eps
+            WHERE documento = :documento");
 
             $sql->bindParam(":documento", $this->documento);
             $sql->bindParam(":nombre", $this->nombre);
@@ -63,12 +63,27 @@ class pacienteModel extends BaseModel
             $sql->bindParam(":email", $this->email);
     
             $sql->execute();
-            echo "<script> alert('Se han actualizado los datos del paciente')
-            window.location.href = '/paciente/index'</script>";
+            // echo "<script> alert('Se han actualizado los datos del paciente')
+            // window.location.href = '/paciente/index'</script>";
         } catch (PDOException $ex) {
            die('Error guardando paciente'.$ex->getMessage());
         }
 
+    }
+
+
+    public function details($id): array
+    {
+        try {
+            //Query que se ejecutara.
+            $query = "SELECT * FROM paciente INNER JOIN usuario ON paciente.fk_cod_usuario = usuario.cod_usuario WHERE paciente.documento = $id;  ";
+            //Obtener los resultados en un array
+            $statment = $this->dbConnection->query($query);
+            $resultSet = $statment->fetchAll(PDO::FETCH_OBJ);
+            return $resultSet;
+        } catch (PDOException $e) {
+            die("Error en consulta" . $e->getMessage());
+        }
     }
    
 }

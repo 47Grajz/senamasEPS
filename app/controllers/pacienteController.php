@@ -11,18 +11,21 @@ class PacienteController extends BaseController
     public function __construct()
     {
         $this->layout = "admin_layout";
+        parent::__construct();
     }
     public function details($id){
-        $where = 'documento';
+
         $pacienteObj  = new pacienteModel();
-        $pacienteObj->details($where,$id);
-        if ($pacienteObj != null) {
+        
+        $pacientes = $pacienteObj->details($id);
+        if ($pacientes != null) {
             $data = [
-                "paciente" => $pacienteObj
+                "informacion" => $pacientes
             ];
             $this->render("paciente/details",$data);
             //$this->render("paciente/edit");
         }
+        else echo 'No disponible';
     }
     public function eliminar($doc)
     {  
@@ -102,6 +105,7 @@ class PacienteController extends BaseController
     {
         $this->render('paciente/create');
     }
+    
     public function new()
     {
         echo "Llegan los datos del formulario";
@@ -134,7 +138,7 @@ class PacienteController extends BaseController
             $this->redirecTo("/paciente/index");
         }
     }
-    public function update()
+    public function update($id)
     {
         if (isset($_POST['txtDocumento'])) {
             $documento = $_POST['txtDocumento'];
@@ -145,7 +149,6 @@ class PacienteController extends BaseController
             $estado = $_POST['txtEstado'];
             $genero = $_POST['txtGenero'];
             $eps = $_POST['txtEPS'];
-            //$fkCodUsuario = "";
             $email = $_POST['txtEmail'];
             //Se crea objeto paciente de los datos recibidos de la vista
             $pacienteBD = new pacienteModel(
@@ -157,11 +160,12 @@ class PacienteController extends BaseController
                 $estado,
                 $genero,
                 $eps,
-
+                $fkCodUsuario=null,
                 $email
             );
 
             $pacienteBD->updatePeople();
+            $this->redirecTo("/paciente/index");
             
         }
     }

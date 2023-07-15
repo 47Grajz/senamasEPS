@@ -1,0 +1,182 @@
+/* 
+
+.contenedor
+{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+}
+
+.side
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vh;
+    padding: 60px;
+    background-color: purple;
+    height: 70vh;
+    border-radius: 0px 10px 10px 0px;
+    text-align: center;
+    color: #F2F2F2;
+      
+}
+
+.side h1{
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.form-content
+{
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    width: 70vh;
+    background-color: #F2F2F2;
+    height: 70vh;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid purple;
+
+
+    
+}
+
+form h1
+{
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: purple;
+    font-weight: bold;
+}
+
+.form-content form{
+ width: 400px;
+}
+
+.form-group-error
+{
+    color: red;
+}
+
+.form-control
+{
+   border: 1px solid purple;
+} */
+
+
+:root
+{
+    --primary: #00bfff;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor
+{
+    width: 150vh;
+    height: 80vh;
+    box-shadow: 0px 0px 50px 2px rgba(0, 191, 255, 0.5);
+
+    border-radius:10px ;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.contenedorlogin
+{
+    flex-direction: row;
+}
+
+
+
+.side, .form-content
+{
+    width: 100vh;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+input,select
+{
+    box-shadow: 0px 0px 10px 2px rgba(0, 191, 255, 0.5);
+    color: #00bfff;
+}
+
+option
+{
+    color: #00bfff;
+}
+
+.side
+{
+    background: rgb(0,191,255);
+    background: linear-gradient(90deg, rgba(0,191,255,1) 0%, rgba(59,212,218,1) 100%, rgba(0,136,255,1) 100%);
+    color: white;
+    text-align: center  ;
+    border-radius: 0 10px 10px 0px;
+}
+
+
+
+
+h1
+{
+    font-size: 25px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+label
+{
+    color: var(--primary);
+}
+
+.form-group-error
+{
+    color: red;
+}
+
+
+.form-content form{
+    width: 40vh;
+    gap: 20px;
+}
+
+.buttons , h1
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons
+{
+    flex-direction: column-reverse;
+    
+}
+
+.buttons p
+{
+    font-size: 13px;
+}
+
+.buttons p a{
+    color: #00bfff;
+}
+
