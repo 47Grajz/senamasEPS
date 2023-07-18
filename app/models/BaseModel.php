@@ -22,6 +22,7 @@ abstract class BaseModel
         } catch (PDOException $e) {
             die("Error en la conexion" . $e->getMessage());
         }
+
     } 
     public function getAll(): array
     {

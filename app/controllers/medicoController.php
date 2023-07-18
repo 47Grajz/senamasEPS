@@ -87,6 +87,10 @@ class MedicoController extends BaseController{
         $MedicoObj = new MedicoModel();
 
         $newDoc = $MedicoObj->select($where,$id);
+
+        $esp = new medico_especialidadModel();
+        
+        $especialidades = $esp->getespecialidad($id);
         
         
         // $especialidades = $newDoc->selecEspecialidad($id);

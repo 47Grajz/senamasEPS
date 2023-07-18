@@ -33,6 +33,8 @@ class BaseController
             //Extraer y crear variables de $data
             $$key = $value;
         }
+
+
         //include_once MAIN_APP_ROUTE."views/$view"."View.php";
         $content = MAIN_APP_ROUTE."views/$view"."View.php";
         $layout = MAIN_APP_ROUTE."views/layouts/{$this->layout}.php";

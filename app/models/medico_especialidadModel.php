@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Error;
 use PDOException;
+use PDO;
 
 class medico_especialidadModel extends BaseModel{
 
@@ -30,5 +31,19 @@ class medico_especialidadModel extends BaseModel{
             die("Error guardando especialidad  " . $m->getMessage());
         }
     }
+
+    public function getespecialidad($id)
+   {
+    try {
+        //Query que se ejecutara.
+        $query = "SELECT * FROM medico_especialidad  WHERE paciente.documento = $id;  ";
+        //Obtener los resultados en un array
+        $statment = $this->dbConnection->query($query);
+        $resultSet = $statment->fetchAll(PDO::FETCH_OBJ);
+        return $resultSet;
+    } catch (PDOException $e) {
+        die("Error en consulta" . $e->getMessage());
+    }
+   } 
 
 }

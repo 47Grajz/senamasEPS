@@ -110,6 +110,10 @@ $routes = [
         'action' => 'index'
     ],
 
+    '/cita/edit/(\d+)' => [
+        'controller' => 'App\Controllers\citaController',
+        'action' => 'edit'
+    ],
     '/cita/eliminar/(\d+)' => [
         'controller' => 'App\Controllers\citaController',
         'action' => 'eliminar'

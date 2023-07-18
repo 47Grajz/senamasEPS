@@ -8,7 +8,7 @@
 if(isset($data["Medico"])):
     foreach($data["Medico"] as $item):
     ?>
-    <h1>Actualizar Paciente</h1>
+    <h1>Actualizar Medico</h1>
     
     <form action="/medico/update/<?php echo "{$item->cod_medico}" ?>" method="post">
    
